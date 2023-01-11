@@ -4,15 +4,13 @@ users
 |-----------------------------|-------|----------------|
 |nickname                     |string |null: false     |
 |email                        |string |unique: true    |
-|password                     |string |null: false     |
-|password_confirmation        |string |null: false     |
+|encrypted_password           |string |null: false     |
 |family_name                  |string |null: false     |
 |first_name                   |string |null: false     |
 |family_name_kana             |string |null: false     |
 |first_name_kana              |string |null: false     |
-|birth_day_yy                 |integer|null: false     |
-|birth_day_mm                 |integer|null: false     |
-|birth_day_dd                 |integer|null: false     |
+|birth_day                    |date   |null: false     |
+
 
 
 
@@ -22,20 +20,20 @@ has_many :purchase_records
 
 items
 
-|Column                       |Type     |Options                            |
-|-----------------------------|---------|-----------------------------------|
-|item_image                   |string   |null: false                        |
-|item_name                    |string   |null: false                        |
-|item_description             |string   |null: false                        |
-|item_category                |string   |null: false                        |
-|item_condition               |string   |null: false                        |
-|payment_method               |string   |null: false                        |
-|sending_area                 |string   |null: false                        |
-|delivery_time                |string   |null: false                        |
-|item_price                   |integer  |null: false                        |
-|admin_fee                    |integer  |null: false                        |
-|sales_profit                 |integer  |null: false                        |
-|user_id                      |reference|null: false, foreign_key: true     |
+|Column                          |Type     |Options                             |
+|--------------------------------|---------|------------------------------------|
+|item_name                       |string    |null: false                        |
+|item_description                |text      |null: false                        |
+|item_category_id                |integer   |null: false                        |
+|item_condition_id               |integer   |null: false                        |
+|payment_method_id               |integer   |null: false                        |
+|sending_area_id                 |integer   |null: false                        |
+|delivery_time_id                |integer   |null: false                        |
+|item_price                      |integer   |null: false                        |
+|admin_fee                       |integer   |null: false                        |
+|sales_profit                    |integer   |null: false                        |
+|user_id                         |reference |null: false, foreign_key: true     |
+|prefecture_id                         |reference |null: false, foreign_key: true     |
 
 ### Association
 belongs_to :user
@@ -51,20 +49,21 @@ purchase_records
 
 ### Association
 belongs_to :user
+belongs_to :item
 has_one :delivery_address
 
-delivery_address
+delivery_addresses
 
 |Column                       |Type      |Options                            |
 |-----------------------------|----------|-----------------------------------|
 |postal_code                  |string    |null: false                        |
-|prefectures                  |string    |null: false                        |
+|prefecture_id                |string    |null: false                        |
 |city                         |string    |null: false                        |
 |address                      |string    |null: false                        |
-|building_name                |string    |null: false                        |
+|building_name                |string    |                                   |
 |phone_number                 |string    |null: false                        |
-|user_id                      |reference |null: false, foreign_key: true     |
+|item_id                      |reference |null: false, foreign_key: true     |
 
 ### Association
-has_one :purchase_record
+belongs_to :purchase_record
 
