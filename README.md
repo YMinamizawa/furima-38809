@@ -23,11 +23,11 @@ items
 |Column                          |Type     |Options                             |
 |--------------------------------|---------|------------------------------------|
 |item_name                       |string    |null: false                        |
-|item_description                |text      |null: false                        |
-|item_category                   |integer   |null: false                        |
-|item_condition                  |integer   |null: false                        |
-|payment_method                  |integer   |null: false                        |
-|prefecture                      |integer   |null: false                        |
+|item_description_id             |text      |null: false                        |
+|item_category_id                |integer   |null: false                        |
+|item_condition_id               |integer   |null: false                        |
+|payment_method_id               |integer   |null: false                        |
+|prefecture_id                   |integer   |null: false                        |
 |delivery_time                   |integer   |null: false                        |
 |item_price                      |integer   |null: false                        |
 |user                            |references|null: false, foreign_key: true     |
