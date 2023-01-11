@@ -27,10 +27,9 @@ items
 |item_category                   |integer   |null: false                        |
 |item_condition                  |integer   |null: false                        |
 |payment_method                  |integer   |null: false                        |
-|sending_area                    |integer   |null: false                        |
+|prefecture                      |integer   |null: false                        |
 |delivery_time                   |integer   |null: false                        |
 |item_price                      |integer   |null: false                        |
-|admin_fee                       |integer   |null: false                        |
 |user                            |references|null: false, foreign_key: true     |
 
 ### Association
@@ -43,7 +42,6 @@ purchase_records
 |-------------------------|-----------|-----------------------------------|
 |user                     |references |null: false, foreign_key: true     |
 |item                     |references |null: false, foreign_key: true     |
-|delivery_address         |references |null: false, foreign_key: true     |
 
 ### Association
 belongs_to :user
@@ -60,7 +58,7 @@ delivery_addresses
 |address                      |string    |null: false                        |
 |building_name                |string    |                                   |
 |phone_number                 |string    |null: false                        |
-|item                         |references|null: false, foreign_key: true     |
+|purchase_record              |references|null: false, foreign_key: true     |
 
 ### Association
 belongs_to :purchase_record
