@@ -28,7 +28,7 @@ items
 |item_condition_id               |integer   |null: false                        |
 |payment_method_id               |integer   |null: false                        |
 |prefecture_id                   |integer   |null: false                        |
-|delivery_time                   |integer   |null: false                        |
+|delivery_time_id                |integer   |null: false                        |
 |item_price                      |integer   |null: false                        |
 |user                            |references|null: false, foreign_key: true     |
 
