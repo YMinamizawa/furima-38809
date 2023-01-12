@@ -23,7 +23,7 @@ items
 |Column                          |Type     |Options                             |
 |--------------------------------|---------|------------------------------------|
 |item_name                       |string    |null: false                        |
-|item_description_id             |text      |null: false                        |
+|item_description                |text      |null: false                        |
 |item_category_id                |integer   |null: false                        |
 |item_condition_id               |integer   |null: false                        |
 |payment_method_id               |integer   |null: false                        |
