@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :first_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ヶー－]+\z/} do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥々ー]+\z/} do
     validates :family_name_kana
     validates :first_name_kana
   end
