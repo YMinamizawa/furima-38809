@@ -1,6 +1,6 @@
 class ItemCategory < ActiveHash::Base
   self.data = [
-    { id: 0, item_name: '--' },
+    { id: 0, item_name: '---' },
     { id: 1, item_name: 'レディース' },
     { id: 2, item_name: 'メンズ' },
     { id: 3, item_name: 'ベビー・キッズ' },
