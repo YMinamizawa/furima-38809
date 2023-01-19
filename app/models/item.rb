@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
   belongs_to :user
-  has_one    :purchase_record
+  #has_one    :purchase_record
 
   belongs_to :item_category
   belongs_to :prefecture
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
     validates :item_price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
-    with_options numericality: { other_than: 0, message: "can't be blank or ---" } do
+    with_options numericality: { other_than: 0, message: "can't be blank or --" } do
       validates :item_category_id
       validates :prefecture_id
       validates :item_condition_id
