@@ -13,15 +13,14 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :user_id
     validates :image
     validates :item_name
     validates :item_description
     # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
-    validates :item_price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :item_price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
-    with_options numericality: { other_than: 0, message: "can't be blank or --" } do
+    with_options numericality: { other_than: 0, message: "can't be blank or ---" } do
       validates :item_category_id
       validates :prefecture_id
       validates :item_condition_id
