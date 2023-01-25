@@ -1,6 +1,6 @@
 class OrderForm
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :building_name, :phone_number, :purchase_record #:token
+  attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :building_name, :phone_number, :purchase_record, :token
     
   with_options presence: true do
     # orderモデルのバリデーション
@@ -13,12 +13,11 @@ class OrderForm
     validates :address
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
     # トークンのバリデーション
-    #validates :token
+    validates :token
   end
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
-    # ストロングパラメーターでデータが運ばれ、それらが保存のタイミングで「order_id」が生成され、保存される。
-    PaymentMethod.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number)
+    DeliveryAddress.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number)
   end
 end
