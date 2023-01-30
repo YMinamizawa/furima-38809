@@ -59,52 +59,52 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報が「---」だと出品できない' do
         @item.item_category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Item category を選択して下さい")
       end
       it 'カテゴリーの情報が空欄だと出品できない' do
         @item.item_category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Item category を選択して下さい")
       end
       it '商品の状態の情報が「---」だと出品できない' do
         @item.item_condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Item condition を選択して下さい")
       end
       it '商品の状態の情報が空欄だと出品できない' do
         @item.item_condition_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Item condition を選択して下さい")
       end
       it '配送料の負担の情報が「---」だと出品できない' do
         @item.payment_method_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Payment method can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Payment method を選択して下さい")
       end
       it '配送料の負担の情報が空欄だと出品できない' do
         @item.payment_method_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Payment method can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Payment method を選択して下さい")
       end
       it '発送元の地域の情報が「---」だと出品できない' do
         @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Prefecture を選択して下さい")
       end
       it '発送元の地域の情報が空欄だと出品できない' do
         @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Prefecture を選択して下さい")
       end
       it '発送までの日数の情報が「---」だと出品できない' do
         @item.delivery_time_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery time can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Delivery time を選択して下さい")
       end
       it '発送までの日数の情報が空欄だと出品できない' do
         @item.delivery_time_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery time can't be blank or ---")
+        expect(@item.errors.full_messages).to include("Delivery time を選択して下さい")
       end
       it '価格が空欄だと出品できない' do
         @item.item_price = nil
