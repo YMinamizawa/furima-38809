@@ -7,11 +7,11 @@ class OrderForm
     validates :user_id
     validates :item_id
     # paymentモデルのバリデーション
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: ' が不正です。ハイフン(-)を含めてください' }
+    validates :prefecture_id, numericality: { other_than: 0, message: "を選択してください" }
     validates :city
     validates :address
-    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid' }
+    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'が不正です' }
     # トークンのバリデーション
     validates :token
   end
